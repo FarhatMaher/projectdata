@@ -1,0 +1,22 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container>* {
+    width: 100%;
+}
+
+.example-header-image {
+    background-size: cover;
+}
+
+.card {
+    margin: 0 auto;
+    /* Added */
+    float: none;
+    /* Added */
+    margin-bottom: 10px;
+    /* Added */
+    margin-top: 10%;
+}

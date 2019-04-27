@@ -1,0 +1,35 @@
+<mat-card class="example-card card" style="width: 600px ; height:300px">
+    <mat-card-header>
+
+        <mat-card-title>Sign in </mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <form (ngSubmit)="authentification()" #loginform="ngForm">
+        <mat-card-content>
+
+            <div class="example-container">
+
+                <mat-form-field>
+                    <input matInput placeholder="Username" name="user" #userr="ngModel" [(ngModel)]="user" required>
+                    <mat-error *ngIf="userr?.errors?.required">Username is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Password" #passwordd="ngModel" name="password" [(ngModel)]="password" required>
+                    <mat-error *ngIf="passwordd?.errors?.required">Password is required</mat-error>
+                </mat-form-field>
+
+
+
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <span class="flex-spacer"></span>
+            <button style="float:right" mat-button type="button" (click)='OpenInscriptionModal()' class="background-primary text-floral-white">Créer un compte</button>
+            <button style="float:right" mat-button type="submit" [disabled]="loginform.form.invalid" class="background-primary text-floral-white">Login</button>
+
+        </mat-card-actions>
+    </form>
+
+</mat-card>
