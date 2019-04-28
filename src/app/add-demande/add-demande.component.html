@@ -1,0 +1,28 @@
+<div *ngFor="let file of files ; let i = index">
+  <div class="dropzone" appDnd (filesChangeEmiter)="onFilesChange($event, i)" >
+    <div class="text-wrapper" >
+      <div class="centered">Drop your file here! {{file.nom}}</div>
+      <input type='file' name='file' (change)="onFilesChangef($event, i)" />
+    </div>
+</div>
+</div>
+  <div class="dropzone-list" >
+
+      <div class="row" >
+        <div  class="col-ms-2" *ngFor="let file of fileList " >
+          {{ file.name }}
+
+
+          <div class="form-check-radio">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" (click)="sendpos(file)" name="exampleRadios" id="exampleRadios1" value="option1">
+              <span class="form-check-sign"></span>
+            </label>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <button mat-button color="primary">Submit</button>

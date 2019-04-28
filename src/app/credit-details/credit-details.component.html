@@ -1,0 +1,134 @@
+<div fxLayout="row"
+      fxLayout.xs="column"
+      fxLayout.sm="column"          >
+    <div fxFlex style="padding: 10px;">
+
+<mat-card>
+  <mat-card-content>
+
+
+<div fxLayout="column"
+fxLayout.xs="column"
+fxLayout.sm="column"  >
+<div fxFlex  >
+      <h2 class="example-h2">Montant Crédit : </h2>
+
+      <mat-form-field class="example-margin" style="margin-left:9px;">
+        <input matInput  type="number" placeholder="Value" name="DPRCAPITAL" [(ngModel)]="body.DPRCAPITAL">
+      </mat-form-field>
+      <mat-slider style="margin-left:9px;"
+            class="example-margin"
+            [disabled]="disabled"
+            [invert]="invert"
+            [max]="maxDPRCAPITAL"
+            [min]="min"
+            [step]="step"
+            thumbLabel
+
+            [(ngModel)]="body.DPRCAPITAL"
+            [vertical]="vertical">
+        </mat-slider>
+      <h2 class="example-h2">Durée de remboursement</h2>
+
+      <mat-form-field class="example-margin" style="margin-left:9px;">
+        <input matInput type="number" placeholder="Value" name="DPRNBRECHEANCE" [(ngModel)]="body.DPRNBRECHEANCE">
+      </mat-form-field>
+      <br />
+      <mat-slider style="margin-left:9px;"
+      class="mat-slider-horizontal"
+
+      [max]="maxDPRNBRECHEANCE"
+      [min]="min"
+      [step]="step"
+      thumbLabel
+
+      [(ngModel)]="body.DPRNBRECHEANCE"
+      [vertical]="vertical">
+  </mat-slider>
+</div>
+
+<div fxFlex fxLayout="row" fxLayoutGap="50px">
+    <h2>Périodicité</h2>
+    <mat-form-field>
+      <mat-label>Periode</mat-label>
+      <mat-select [(value)]="body.DPRMENSUALITE">
+        <mat-option *ngFor="let periode of periodes" [value]="periode.value"  >
+          {{periode.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+</div>
+
+<button mat-button (click)="Simuler()" style="background-color: #2b5988"> <span style="color: white">Simuler</span></button>
+</div>
+
+</mat-card-content>
+</mat-card>
+</div>
+
+<div fxFlex style="padding: 10px;">
+
+  <mat-card>
+    <mat-card-title>
+      <div fxFlex>
+        <div >
+            <h2>RECAPITULATIF</h2>
+        </div>
+      </div>
+
+    </mat-card-title>
+    <mat-card-content>
+      <h4>Montant du crédit : </h4>
+            <h4>Durée de remboursement </h4>
+      <h4>Périodicité</h4>
+
+      <h2>RESULTAT</h2>
+
+<mat-card>
+
+  <mat-card-content>
+
+<div fxLayout="row" *ngIf="Simulation" >
+
+  <div fxFlex>
+    <h4>Montant Totale du </h4>  <b>{{Simulation.DPRCAPITAL}}</b>
+    <h4>Echéance {{body.DPRMENSUALITE}}</h4>   <b>{{Simulation.DPRECHEANCE}}</b>
+  </div>
+  <div fxFlex>
+
+    <h4>
+
+    </h4>
+    <h4>
+      Dont intéret
+    </h4>
+    <b>{{Simulation.DPRTOTALINTERET}}</b>
+
+    <h4>
+      Taux
+    </h4>
+    <b>{{body.DPRTAUXINTERET}}</b>
+    </div>
+
+</div>
+
+  </mat-card-content>
+</mat-card>
+
+    </mat-card-content>
+
+
+    <button mat-button color="primary">Ajouter au comparateur</button>
+    <button mat-button color="primary" (click)="openComparateur()">Consulter comparateur</button>
+    <button mat-button color="primary" (click)="openAdddemande()">Ajouter demande de crédit</button>
+    <button mat-button color="primary" (click)="openAdddemande()">Voir Echénaces</button>
+  </mat-card>
+
+
+
+</div>
+
+</div>
+
+

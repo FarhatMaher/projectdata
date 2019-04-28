@@ -1,7 +1,12 @@
-<mat-card *ngFor="let credit of credits">
-<mat-card-header>
-  <mat-card-title>
-{{credit.nom}}
-  </mat-card-title>
-</mat-card-header>
-</mat-card>
+<div fxFlex >
+
+<mat-grid-list cols="4" rowHeight="4:1">
+  <mat-grid-tile *ngFor="let credit of credits" [routerLink]="['/home/creditDelais' , credit.id]" routerLinkActive="router-link-active"  appHighlight>
+    <h1 >{{credit.TCRNOM | uppercase}}</h1>
+
+
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+</div>

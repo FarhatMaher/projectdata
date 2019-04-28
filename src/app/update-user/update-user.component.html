@@ -1,0 +1,108 @@
+<mat-card-header>
+  <mat-card-title>
+    <h2>Update user</h2>
+  </mat-card-title>
+</mat-card-header>
+
+<mat-card>
+  <form #formuser="ngForm" novalidate (ngSubmit)="UpdateUser()">
+    <mat-dialog-content>
+      <mat-form-field style="width: 100%">
+        <input
+          matInput
+          placeholder="firstname"
+          #firstname="ngModel"
+          [(ngModel)]="user.firstname"
+          name="firstname"
+          required
+        />
+        <mat-error *ngIf="firstname?.errors?.required"
+          >Firstname is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%">
+        <input
+          matInput
+          placeholder="lastname"
+          #lastname="ngModel"
+          [(ngModel)]="user.lastname"
+          name="lastname"
+          required
+        />
+        <mat-error *ngIf="lastname?.errors?.required"
+          >Lastname is required</mat-error
+        >
+      </mat-form-field>
+      <mat-radio-group [(ngModel)]="choice" name="choice">
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let gen of gender"
+          [value]="gen"
+        >
+          {{ gen }}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field style="width: 100%"
+        ><input
+          matInput
+          placeholder="Address"
+          #address="ngModel"
+          [(ngModel)]="user.address"
+          name="address"
+          required
+        />
+        <mat-error *ngIf="address?.errors?.required"
+          >address is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field style="width: 100%">
+        <input
+          matInput
+          placeholder="City"
+          #city="ngModel"
+          [(ngModel)]="user.city"
+          name="city"
+          required
+        />
+        <mat-error *ngIf="city?.errors?.required">city is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%">
+        <input
+          matInput
+          placeholder="State"
+          #state="ngModel"
+          [(ngModel)]="user.state"
+          name="state"
+          required
+        />
+        <mat-error *ngIf="state?.errors?.required">state is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%">
+        <input
+          matInput
+          placeholder="Order Total"
+          #ordertotal="ngModel"
+          [(ngModel)]="user.ordertotal"
+          name="ordertotal"
+          required
+        />
+        <mat-error *ngIf="ordertotal?.errors?.required"
+          >state is required</mat-error
+        >
+      </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <button mat-button type="submit " [disabled]="formuser.form.invalid">
+        Update user
+      </button>
+
+      <button mat-button mat-dialog-close>
+        Cancel
+      </button>
+    </mat-dialog-actions>
+  </form>
+</mat-card>

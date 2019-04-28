@@ -10,8 +10,9 @@ export class TypeCreditsComponent implements OnInit {
   constructor(private creditServie: CreditService) {}
   credits;
   ngOnInit() {
-    this.creditServie
-      .getCredits()
-      .subscribe(credits => (this.credits = credits));
+    this.creditServie.getCredits().subscribe(credits => {
+      this.credits = credits;
+      console.log(credits);
+    });
   }
 }
