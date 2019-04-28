@@ -1,3 +1,6 @@
+import { ConsulterDemandesDecideursComponent } from "./consulter-demandes-decideurs/consulter-demandes-decideurs.component";
+import { ComparateurComponent } from "./comparateur/comparateur.component";
+import { ConsulterDemandesComponent } from "./consulter-demandes/consulter-demandes.component";
 import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
 import { LoginComponent } from "./login/login.component";
 import { NgModule, Component } from "@angular/core";
@@ -7,6 +10,7 @@ import { TypeCreditsComponent } from "./type-credits/type-credits.component";
 import { CreditDetailsComponent } from "./credit-details/credit-details.component";
 import { TableComponent } from "./table/table.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { ConsulterEcheanComponent } from "./consulter-echean/consulter-echean.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -19,7 +23,10 @@ const routes: Routes = [
       { path: "creditDelais/:id", component: CreditDetailsComponent },
       { path: "gestionUser", component: TableComponent },
       { path: "dashboard", component: DashboardComponent },
-      { path: "Admindashboard", component: AdminDashboardComponent }
+      { path: "Admindashboard", component: AdminDashboardComponent },
+      { path: "listeDemandes", component: ConsulterDemandesComponent },
+      { path: "historiques", component: ComparateurComponent },
+      { path: "decideur", component: ConsulterDemandesDecideursComponent }
     ]
   }
 ];

@@ -46,8 +46,18 @@ import { MatRadioModule } from "@angular/material/radio";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { DndDirective } from "./directives/dnd.directive";
 import { AddDemandeComponent } from "./add-demande/add-demande.component";
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { ChartsModule } from './charts/charts.module';
+import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
+
+import { ConsulterEcheancierComponent } from "./consulter-echeancier/consulter-echeancier.component";
+import { ConsulterDemandesComponent } from "./consulter-demandes/consulter-demandes.component";
+import { DetailsDemandeComponent } from "./details-demande/details-demande.component";
+import { ChartsModule as Ng2Charts } from "ng2-charts";
+import { ChartsComponent } from "./charts/charts.component";
+import { ConsulterDemandesDecideursComponent } from "./consulter-demandes-decideurs/consulter-demandes-decideurs.component";
+import { CalculescoreComponent } from "./calculescore/calculescore.component";
+import { MatStepperModule } from "@angular/material/stepper";
+import { StepperComponent } from "./stepper/stepper.component";
+import { ConsulterEcheanComponent } from "./consulter-echean/consulter-echean.component";
 
 @NgModule({
   declarations: [
@@ -67,7 +77,15 @@ import { ChartsModule } from './charts/charts.module';
     DashboardComponent,
     DndDirective,
     AddDemandeComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ConsulterEcheancierComponent,
+    ConsulterDemandesComponent,
+    DetailsDemandeComponent,
+    ChartsComponent,
+    ConsulterDemandesDecideursComponent,
+    CalculescoreComponent,
+    StepperComponent,
+    ConsulterEcheanComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +115,8 @@ import { ChartsModule } from './charts/charts.module';
     MatSortModule,
     MatRadioModule,
     MatMenuModule,
-    ChartsModule
+    MatStepperModule,
+    Ng2Charts
   ],
 
   providers: [],
@@ -110,7 +129,10 @@ import { ChartsModule } from './charts/charts.module';
     ModalComponent,
     AddUserComponent,
     UpdateUserComponent,
-    AddDemandeComponent
+    AddDemandeComponent,
+    DetailsDemandeComponent,
+    CalculescoreComponent,
+    ConsulterEcheanComponent
   ]
 })
 export class AppModule {}

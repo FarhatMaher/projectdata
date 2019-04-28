@@ -1,0 +1,41 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="DPRINTERETN">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRINTERETN</th>
+      <td mat-cell *matCellDef="let row">{{row.DPRINTERETN}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="DPRORDER">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRORDER</th>
+        <td mat-cell *matCellDef="let row">{{row.DPRORDER}}</td>
+      </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="DPRCAPITALN">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRCAPITALN</th>
+      <td mat-cell *matCellDef="let row">{{row.DPRCAPITALN}}</td>
+    </ng-container>
+    <ng-container matColumnDef="DPRECHEANCEN">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRINTERETN</th>
+        <td mat-cell *matCellDef="let row">{{row.DPRINTERETN}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="DPRDATE">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRDATE</th>
+        <td mat-cell *matCellDef="let row">{{row.DPRDATE}}</td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource.data.length"
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>

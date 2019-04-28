@@ -1,23 +1,64 @@
 <div class="mat-elevation-z8">
   <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
     <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    <ng-container matColumnDef="DPRCAPITAL">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRCAPITAL</th>
+      <td mat-cell *matCellDef="let row">{{row.DPRCAPITAL}}</td>
     </ng-container>
 
+
+
+
+    <ng-container matColumnDef="DPRNBRECHEANCE">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRNBRECHEANCE</th>
+        <td mat-cell *matCellDef="let row">{{row.DPRNBRECHEANCE}}</td>
+      </ng-container>
+
+
+
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <ng-container matColumnDef="DPRTAUXINTERET">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRTAUXINTERET</th>
+      <td mat-cell *matCellDef="let row">{{row.DPRTAUXINTERET}}</td>
     </ng-container>
+
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="DPRTOTALINTERET">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRTOTALINTERET</th>
+        <td mat-cell *matCellDef="let row">{{row.DPRTOTALINTERET}}</td>
+      </ng-container>
+      <ng-container matColumnDef="DPRMENSUALITE">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRMENSUALITE</th>
+          <td mat-cell *matCellDef="let row">{{row.DPRMENSUALITE}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="DPRECHEANCE">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRECHEANCE</th>
+          <td mat-cell *matCellDef="let row">{{row.DPRECHEANCE}}</td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="operations">
+
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Operations </mat-header-cell>
+
+            <mat-cell *matCellDef="let element">
+                <button mat-button color="primary" (click)="openAdddemande(element)">Ajouter demande de crédit</button>
+
+            </mat-cell>
+
+
+        </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
   <mat-paginator #paginator
-
+  [length]="dataSource.data.length"
       [pageIndex]="0"
       [pageSize]="50"
       [pageSizeOptions]="[25, 50, 100, 250]">

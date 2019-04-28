@@ -1,8 +1,8 @@
 <div *ngFor="let file of files ; let i = index">
-  <div class="dropzone" appDnd (filesChangeEmiter)="onFilesChange($event, i)" >
+  <div class="dropzone" appDnd (filesChangeEmiter)="onFilesChange($event, i, file)" >
     <div class="text-wrapper" >
       <div class="centered">Drop your file here! {{file.nom}}</div>
-      <input type='file' name='file' (change)="onFilesChangef($event, i)" />
+      <input type='file' name='file' (change)="onFilesChangef($event, i, file)" />
     </div>
 </div>
 </div>
@@ -15,7 +15,7 @@
 
           <div class="form-check-radio">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" (click)="sendpos(file)" name="exampleRadios" id="exampleRadios1" value="option1">
+              <input class="form-check-input" type="radio" (click)="sendDemande()" name="exampleRadios" id="exampleRadios1" value="option1">
               <span class="form-check-sign"></span>
             </label>
           </div>
@@ -25,4 +25,4 @@
       </div>
     </div>
 
-    <button mat-button color="primary">Submit</button>
+    <button mat-button color="primary" (click)="sendDemande()">Submit</button>

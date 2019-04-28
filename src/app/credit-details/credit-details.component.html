@@ -73,15 +73,16 @@ fxLayout.sm="column"  >
     <mat-card-title>
       <div fxFlex>
         <div >
-            <h2>RECAPITULATIF</h2>
+            <h2 class="example-h2">RECAPITULATIF</h2>
         </div>
       </div>
 
     </mat-card-title>
     <mat-card-content>
-      <h4>Montant du crédit : </h4>
-            <h4>Durée de remboursement </h4>
-      <h4>Périodicité</h4>
+        <div  fxLayout="row">
+      <h4>Capital à Rembourser : </h4> <span style="padding-top: 17px;padding-left: 100px">{{body.DPRCAPITAL}}</span></div>
+      <div  fxLayout="row">        <h4>Durée de remboursement </h4> <span style="padding-top: 19px;padding-left: 100px">{{body.DPRNBRECHEANCE}} Mois</span></div>
+            <div  fxLayout="row">   <h4>Périodicité:</h4>   <span style="padding-top: 19px;padding-left: 174px">{{body.DPRMENSUALITE}}</span></div>
 
       <h2>RESULTAT</h2>
 
@@ -92,23 +93,21 @@ fxLayout.sm="column"  >
 <div fxLayout="row" *ngIf="Simulation" >
 
   <div fxFlex>
-    <h4>Montant Totale du </h4>  <b>{{Simulation.DPRCAPITAL}}</b>
-    <h4>Echéance {{body.DPRMENSUALITE}}</h4>   <b>{{Simulation.DPRECHEANCE}}</b>
+      <div  fxLayout="row">  <h4>Montant Totale du: </h4>  <span style="padding-top: 19px;padding-left: 50PX">{{Simulation.DPRCAPITAL}} $</span> </div>
+      <div  fxLayout="row"> <h4>Echéance:</h4>   <span style="padding-top: 19px;padding-left: 50PX">{{Simulation.DPRECHEANCE}} $</span> </div>
   </div>
   <div fxFlex>
 
-    <h4>
 
+    <div  fxLayout="row"> <h4>
+      Dont intéret:
     </h4>
-    <h4>
-      Dont intéret
-    </h4>
-    <b>{{Simulation.DPRTOTALINTERET}}</b>
+    <span style="padding-top: 19px;padding-left: 50PX">{{Simulation.DPRTOTALINTERET}} $</span></div>
 
-    <h4>
-      Taux
+    <div  fxLayout="row" style="padding-left: 20px;"> <h4>
+      Taux:
     </h4>
-    <b>{{body.DPRTAUXINTERET}}</b>
+    <span style="padding-top: 19px;padding-left: 50PX">{{body.DPRTAUXINTERET}}%</span></div>
     </div>
 
 </div>
@@ -117,12 +116,10 @@ fxLayout.sm="column"  >
 </mat-card>
 
     </mat-card-content>
-
-
-    <button mat-button color="primary">Ajouter au comparateur</button>
-    <button mat-button color="primary" (click)="openComparateur()">Consulter comparateur</button>
-    <button mat-button color="primary" (click)="openAdddemande()">Ajouter demande de crédit</button>
-    <button mat-button color="primary" (click)="openAdddemande()">Voir Echénaces</button>
+    <div  fxLayout="row" style="    padding-left: 103px;">
+    <button mat-button back (click)="openAdddemande()" style="background-color: #2b5988;"><span style="color: white"> Demande Crédit</span></button>
+    <button mat-button color="primary" (click)="openConsulterEcheance()" style="background-color: #2b5988;margin-left: 10px"><span style="color: white">Voir Echéancier</span></button>
+    </div>
   </mat-card>
 
 

@@ -1,0 +1,19 @@
+
+<div *ngFor="let file of data.data ; let i = index">
+
+    <div class="text-wrapper" >
+      <div class="centered"> {{file.DCRNOM}} </div>
+      <a href="http://192.168.137.185:8000{{file.DocumentFile}}">Upload</a>
+    </div>
+
+</div>
+<mat-form-field class="example-full-width">
+
+
+
+   <textarea matInput  placeholder="Your Comment" rows=12></textarea>
+  </mat-form-field>
+
+
+  <button mat-button (click)="complet()">Dossier complet</button>
+  <button mat-button (click)="incomplet()">Dossier incomplet</button>

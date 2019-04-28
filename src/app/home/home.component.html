@@ -13,6 +13,13 @@
       <a mat-list-item  [routerLink]="['/home/dashboard']" routerLinkActive="router-link-active"   >Tableau de bord</a>
       <hr>
       <a mat-list-item  [routerLink]="['/home/Admindashboard']" routerLinkActive="router-link-active"   >Tableau de bord</a>
+<hr>
+      <a mat-list-item  [routerLink]="['/home/listeDemandes']" routerLinkActive="router-link-active"   >Consulter les demandes</a>
+      <hr>
+      <a mat-list-item  [routerLink]="['/home/historiques']" routerLinkActive="router-link-active"   >Historiques </a>
+      <hr>
+      <a mat-list-item  [routerLink]="['/home/decideur']" routerLinkActive="router-link-active"   >Decideur </a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -25,7 +32,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span style="color: #ffffff">FrontOfficeSimple</span>
+      <span style="color: #ffffff">HELIX FINANCE</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

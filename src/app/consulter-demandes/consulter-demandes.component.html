@@ -1,0 +1,35 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Id Column -->
+
+
+    <ng-container matColumnDef="ETATACCEPTATION" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ETATACCEPTATION</th>
+      <td mat-cell *matCellDef="let row" (click)="ConsulterDemande(row)">{{row.ETATACCEPTATION}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="ETATDOCUMENT">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ETATDOCUMENT</th>
+      <td mat-cell *matCellDef="let row">{{row.ETATDOCUMENT}}</td>
+    </ng-container>
+    <ng-container matColumnDef="COMMENTAIREAGENT">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>COMMENTAIREAGENT</th>
+        <td mat-cell *matCellDef="let row">{{row.COMMENTAIREAGENT}}</td>
+      </ng-container>
+      <ng-container matColumnDef="DPRID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>DPRID</th>
+          <td mat-cell *matCellDef="let row">{{row.DPRID}}</td>
+        </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+  [length]="dataSource.data.length"
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>
