@@ -4,6 +4,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { InscriptionComponent } from "../inscription/inscription.component";
 import { ToastComponent } from "../toast/toast.component";
+import { UserService } from "../services/user.service";
 
 @Component({
   selector: "app-login",
@@ -17,33 +18,29 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     public snackBar: MatSnackBar,
-    /*private auth: UserService ,*/ private dialog1: MatDialog
+    private auth: UserService,
+    private dialog1: MatDialog
   ) {}
 
   ngOnInit() {
     this.openSnackBar("Welcome to our management system");
   }
 
-  /*authentification() {
-
-    let userr = { 'username': this.user , 'password': this.password} ;
+  authentification() {
+    let userr = { username: this.user, password: this.password };
     this.auth.Auth(userr).subscribe(user => {
-
-
+      console.log(user);
       if (user) {
-        localStorage.setItem('id', '1');
-        localStorage.setItem('username', user.username);
-        this.router.navigate(['/home/dragdrop']);
+        localStorage.setItem("id", "1");
+        localStorage.setItem("username", user.username);
+        this.router.navigate(["/home"]);
       } else {
-        this.do('Please check your data');
-        this.user = '' ;
-        this.password = '';
+        //  this.do("Please check your data");
+        this.user = "";
+        this.password = "";
       }
-
-    } );
-
-
-  }*/
+    });
+  }
 
   openSnackBar(msg) {
     this.snackBar.openFromComponent(ToastComponent, {

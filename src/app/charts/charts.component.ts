@@ -1,3 +1,4 @@
+import { CreditService } from "./../services/credit.service";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -13,34 +14,20 @@ export class ChartsComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels: string[] = [
-    "2006",
-    "2007",
-    "2008",
-    "2009",
-    "2010",
-    "2011",
-    "2012"
-  ];
+
+  public barChartLabels: string[] = [];
   public barChartType: string = "bar";
   public barChartLegend: boolean = true;
 
-  public barChartData: any[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: "Series A" },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: "Series B" }
-  ];
+  public barChartData: any[] = [{ data: [], label: "" }];
 
   // Doughnut
-  public doughnutChartLabels: string[] = [
-    "Download Sales",
-    "In-Store Sales",
-    "Mail-Order Sales"
-  ];
+  public doughnutChartLabels: string[] = [];
   do(val) {
     this.num = +val;
     this.doughnutChartData = [this.num, 450, 100];
   }
-  public doughnutChartData: number[] = [5, 450, 100];
+  public doughnutChartData: number[] = [];
   public doughnutChartType: string = "doughnut";
 
   // Radar
@@ -54,8 +41,8 @@ export class ChartsComponent implements OnInit {
     "Running"
   ];
   public radarChartData: any = [
-    { data: [65, 59, 90, 81, 56, 55, 40], label: "Series A" },
-    { data: [28, 48, 40, 19, 96, 27, 100], label: "Series B" }
+    { data: [65], label: "Series A" },
+    { data: [28], label: "Series B" }
   ];
   public radarChartType: string = "radar";
 
@@ -161,8 +148,37 @@ export class ChartsComponent implements OnInit {
      * assign it;
      */
   }
+  statSimul;
+  open = false;
+  mm = new Array<any>();
 
-  constructor() {}
+  constructor(private creditservice: CreditService) {
+    this.creditservice.getStatSimulation().subscribe(stat => {
+      this.statSimul = stat;
 
-  ngOnInit() {}
+      console.log(stat);
+      this.statSimul.filter(stat => this.barChartLabels.push(stat.month));
+      this.statSimul.filter(stat => this.mm.push(stat.nbr_simulation));
+      console.log(this.barChartLabels);
+      console.log(this.mm);
+      let obj = { data: this.mm, label: "months" };
+      this.barChartData.push(obj);
+      this.open = true;
+    });
+  }
+
+  ngOnInit() {
+    this.creditservice.getStatDemande().subscribe(stat => {
+      this.statSimul = stat;
+
+      console.log(stat);
+      this.statSimul.filter(stat => this.doughnutChartLabels.push(stat.month));
+      this.statSimul.filter(stat =>
+        this.doughnutChartData.push(stat.nbr_demande)
+      );
+      console.log(this.doughnutChartData);
+
+      this.open = true;
+    });
+  }
 }

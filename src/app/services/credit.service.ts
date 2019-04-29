@@ -88,4 +88,14 @@ export class CreditService {
   getEcheanciers(idsim) {
     return this.http.get<any>(baseURL + `api/simulation-echeance?ID=${idsim}`);
   }
+
+  getStatSimulation() {
+    return this.http.get<any>(baseURL + `api/statistique`);
+  }
+  getStatDemande() {
+    return this.http.get<any>(baseURL + `api/statistique-demande`);
+  }
+  getStataccepte() {
+    return this.http.get<any>(baseURL + `api/statistique-accepte`);
+  }
 }

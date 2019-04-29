@@ -11,7 +11,14 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<any> {
-    return this.http.get(this.url + "users");
+    return this.http.get(baseURL + "api/login");
+  }
+  Auth(user): Observable<any> {
+    const headers = new HttpHeaders({
+      ContentType: "application/json"
+    });
+
+    return this.http.post(baseURL + "api/login", user, { headers: headers });
   }
 
   postUser(user): Observable<any> {
