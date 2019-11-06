@@ -23,23 +23,12 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.openSnackBar("Welcome to our management system");
+    this.openSnackBar("Welcome to our DATA SCIENCE PROJECT");
   }
 
   authentification() {
     let userr = { username: this.user, password: this.password };
-    this.auth.Auth(userr).subscribe(user => {
-      console.log(user);
-      if (user) {
-        localStorage.setItem("id", "1");
-        localStorage.setItem("username", user.username);
-        this.router.navigate(["/home"]);
-      } else {
-        //  this.do("Please check your data");
-        this.user = "";
-        this.password = "";
-      }
-    });
+    this.router.navigate(["/home"]);
   }
 
   openSnackBar(msg) {

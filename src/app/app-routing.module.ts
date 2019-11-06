@@ -19,14 +19,7 @@ const routes: Routes = [
     path: "home",
     component: HomeComponent,
     children: [
-      { path: "typecredit", component: TypeCreditsComponent },
-      { path: "creditDelais/:id", component: CreditDetailsComponent },
-      { path: "gestionUser", component: TableComponent },
-      { path: "dashboard", component: DashboardComponent },
-      { path: "Admindashboard", component: AdminDashboardComponent },
-      { path: "listeDemandes", component: ConsulterDemandesComponent },
-      { path: "historiques", component: ComparateurComponent },
-      { path: "decideur", component: ConsulterDemandesDecideursComponent }
+      { path: "typecredit", component: TypeCreditsComponent }
     ]
   }
 ];

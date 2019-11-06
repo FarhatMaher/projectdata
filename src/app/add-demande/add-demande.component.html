@@ -1,11 +1,11 @@
-<div *ngFor="let file of files ; let i = index">
+
   <div class="dropzone" appDnd (filesChangeEmiter)="onFilesChange($event, i, file)" >
     <div class="text-wrapper" >
       <div class="centered">Drop your file here! {{file.nom}}</div>
       <input type='file' name='file' (change)="onFilesChangef($event, i, file)" />
     </div>
 </div>
-</div>
+
   <div class="dropzone-list" >
 
       <div class="row" >
