@@ -98,4 +98,19 @@ export class CreditService {
   getStataccepte() {
     return this.http.get<any>(baseURL + `api/statistique-accepte`);
   }
+
+
+  upload_file(file): Observable<any> {
+    const formData: any = new FormData();
+    formData.append('file', file);
+
+    return this.http.post(
+      baseURL + `api/upload`,
+      formData , {responseType: 'text'}
+    );
+  }
+  getText(tmp,templa,pdf): Observable<any> {
+    return this.http.get(baseURL + `api/ocr/${tmp}/${templa}/${pdf}`, {responseType: 'text'});
+  }
+
 }

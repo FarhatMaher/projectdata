@@ -31,7 +31,6 @@ export class DndDirective {
     if (files.length > 0) {
       this.background = "#eee";
       this.filesChangeEmiter.emit(files);
-      console.log(files);
     }
   }
 }

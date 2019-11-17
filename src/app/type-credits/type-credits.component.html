@@ -4,26 +4,28 @@
 <div class="dropzone" appDnd (filesChangeEmiter)="onFilesChange($event)" style="height: 40%;">
   <div class="text-wrapper" >
     <div class="centered">Drop your file here! </div>
-    <input type='file' name='file' (change)="onFilesChangef($event, i, file)" />
+    <input type='file' name='file' multiple (change)="onFilesChangef($event)" />
+  </div>
+  <div *ngFor="let url of imgURL">
+    <img [src]="url" *ngIf="imgURL" class="center">
   </div>
 </div>
 
 
 <div class="dropzone-list" >
-
+  
   <div class="row" >
     <div  class="col-ms-2" *ngFor="let file of fileList " >
       {{ file.name }}
-
-
-      <div class="form-check-radio">
-        <label class="form-check-label">
-          <input class="form-check-input" type="radio" (click)="sendDemande()" name="exampleRadios" id="exampleRadios1" value="option1">
-          <span class="form-check-sign"></span>
-        </label>
-      </div>
-
     </div>
-
+  
   </div>
 </div>
+<button (click)="delete()" >Delete File</button>
+<br>
+
+<button (click)="getText()"> get Words </button>
+<p> words : 
+
+  {{text}}
+</p>
