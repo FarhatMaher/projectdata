@@ -13,7 +13,7 @@ export class TypeCreditsComponent implements OnInit {
   urls = new Array<any>();
   files = new Array<any>();
   filename: any;
-  text;
+  text: any ;
   imgURL= new Array<any>();
   tmp; templa; pdf;
   name: String ;
@@ -89,7 +89,7 @@ export class TypeCreditsComponent implements OnInit {
 
    this.text= ''
     this.creditServie.getText(this.tmp,this.templa,this.pdf).subscribe(
-      next => this.text = next
+      next => {this.text = next; console.log(this.text);}
       );
   }
   delete () {

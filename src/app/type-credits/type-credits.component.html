@@ -25,7 +25,7 @@
 <br>
 
 <button (click)="getText()"> get Words </button>
-<p> words : 
+<p *ngIf="text"> words : 
 
-  {{text}}
+  {{text.nom}}
 </p>
