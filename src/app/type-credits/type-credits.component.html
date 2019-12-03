@@ -1,9 +1,25 @@
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  </style>
 
 
-
-<div class="dropzone" appDnd (filesChangeEmiter)="onFilesChange($event)" style="height: 40%;">
+<div class="dropzone" appDnd (filesChangeEmiter)="onFilesChange($event)" style="height: 30%;">
   <div class="text-wrapper" >
-    <div class="centered">Drop your file here! </div>
+    <div class="centered">Drop your files here : </div>
     <input type='file' name='file' multiple (change)="onFilesChangef($event)" />
   </div>
   <div *ngFor="let url of imgURL">
@@ -16,16 +32,61 @@
   
   <div class="row" >
     <div  class="col-ms-2" *ngFor="let file of fileList " >
-      {{ file.name }}
+      
     </div>
   
   </div>
 </div>
-<button (click)="delete()" >Delete File</button>
+<button (click)="getText()" style="float: right; color: green;"> Get Words </button>
+<button (click)="delete()" style="float: right; color: red;">Delete Files</button>
+<br>
+<br>
 <br>
 
-<button (click)="getText()"> get Words </button>
-<p *ngIf="text"> words : 
+<!--<p *ngIf="text"> words : 
 
   {{text.nom}}
-</p>
+  
+</p>-->
+      <table *ngIf="text">
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Numéro CIN</td>
+          <td>{{text.numero}}</td>
+        </tr>
+        <tr>
+          <td>Nom</td>
+          <td>{{text.nom}}</td>
+        </tr>
+        <tr>
+          <td>Prénom</td>
+          <td>{{text.prenom}}</td>
+        </tr>
+        <tr>
+          <td>Date de naissance</td>
+          <td>{{text.datedenaissance}}</td>
+        </tr>
+        <tr>
+          <td>Lieu de naissance</td>
+          <td>{{text.endroitdenaissance}}</td>
+        </tr>
+        <tr>
+          <td>Nom et Prénom du mére</td>
+          <td>{{text.nommere}}</td>
+        </tr>
+        <tr>
+          <td>Profession</td>
+          <td>{{text.profession}}</td>
+        </tr>
+        <tr>
+          <td>Adresse</td>
+          <td>{{text.adresse}}</td>
+        </tr>
+        <tr>
+          <td>Date de fabrication</td>
+          <td>{{text.datefabrication}}</td>
+        </tr>
+      </table>

@@ -109,8 +109,8 @@ export class CreditService {
       formData , {responseType: 'text'}
     );
   }
-  getText(tmp,templa,pdf): Observable<any> {
-    return this.http.get(baseURL + `api/ocr/${tmp}/${templa}/${pdf}`);
+  getText(pdf): Observable<any> {
+    return this.http.get(baseURL + `api/ocr/${pdf}`);
   }
 
 }
